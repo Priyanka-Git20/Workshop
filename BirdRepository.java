@@ -1,22 +1,27 @@
 import java.util.List;
 import  java .util.ArrayList;
+import java.util.Scanner;
 
 public class BirdRepository {
-    List birdList = new ArrayList();
+    private List<Bird> birdList = new ArrayList();
 
-    public void add(Parrot parrot){
-        birdList.add(parrot);
-
+    public List<Bird> getBirdList() {
+        return birdList;
     }
 
-    public void add(Duck duck){
-        birdList.add(duck);
-
+    public void add(Bird bird) {
+        birdList.add(bird);
     }
 
-    public void add(Penguin penguin){
-        birdList.add(penguin);
-
+    public void remove(Bird bird) {
+        birdList.remove(bird);
     }
 
+    public Bird getBird(String name) {
+        for(int i = 0; i < birdList.size(); i++) {
+            if(name.equalsIgnoreCase(birdList.get(i).name))
+                return birdList.get(i);
+        }
+        return null;
+    }
 }
